@@ -1,5 +1,5 @@
-# Boston housing dataset used in tutorial removed from sklearn 
-# due to racial insensitivity. 
+# Boston housing dataset used in tutorial removed from sklearn
+# due to racial insensitivity.
 # using california housing market data instead
 
 from sklearn.datasets import fetch_california_housing
@@ -10,6 +10,7 @@ import pandas as pd
 
 
 california = fetch_california_housing()
+
 X = california.data
 y = california.target
 # features of california
@@ -21,4 +22,12 @@ y = california.target
 # - AveOccup      average number of household members
 # - Latitude      block group latitude
 # - Longitude     block group longitude
-print(y)
+features = ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms',
+            'Population', 'AveOccup', 'Latitude', 'Longitude']
+target_names = ['MedHouseVal']
+
+
+# algorithm
+l_reg = linear_model.LinearRegression()
+
+
