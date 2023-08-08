@@ -5,6 +5,7 @@
 from sklearn.datasets import fetch_california_housing
 from sklearn import linear_model
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
@@ -17,8 +18,17 @@ ames_features = ames.columns
 # print(ames_features)
 ames_target = ames['SalePrice'].values
 ames_useful = ames[[
-    'OverallQual', 'YearBuilt', 'YearRemodAdd', 'TotalBsmtSF', '1stFlrSF', '2ndFlrSF', 'GrLivArea',
-    'FullBath', 'TotRmsAbvGrd', 'GarageCars', 'GarageArea'
+    'OverallQual',
+    'YearBuilt',
+    'YearRemodAdd',
+    'TotalBsmtSF',
+    '1stFlrSF',
+    '2ndFlrSF',
+    'GrLivArea',
+    'FullBath',
+    'TotRmsAbvGrd',
+    'GarageCars',
+    'GarageArea'
 ]].values
 
 california = fetch_california_housing()
@@ -70,13 +80,14 @@ ames_useful_X_train, ames_useful_X_test, ames_useful_y_train, ames_useful_y_test
 
 ames_model = l_reg.fit(ames_useful_X_train, ames_useful_y_train)
 ames_predictions = ames_model.predict(ames_useful_X_test)
-print("ames_predictions:", ames_predictions)
-print("R^2 value: ", l_reg.score(ames_useful, ames_target))
-
+# print("ames_predictions:", ames_predictions)
+print("R^2 value: ", l_reg.score(ames_useful, ames_target)) #77% accuracy
 # train test split for cali data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 model = l_reg.fit(X_train, y_train)
 predictions = model.predict(X_test)
 # show data for calij
 # print("predictions:", predictions)
-# print("R^2 value:", l_reg.score(X, y))
+# print("R^2 value:", l_reg.score(X, y)) #60% accuracy
+# print("coedd:", l_reg.coef_)
+# print("intercept: ", l_reg.intercept_)
