@@ -1,3 +1,4 @@
+
 # SIGMOID algorithm
 # useful in learning non-linear relationships between data points
 # a sigmoid function is a regression function used to find
@@ -26,7 +27,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 from sklearn.preprocessing import scale
-import pandas as pd
+# import pandas as pd
 
 # all data brought in
 bc = load_breast_cancer()
